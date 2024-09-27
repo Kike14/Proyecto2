@@ -1,3 +1,6 @@
+import pandas as pd
+import numpy as np
+
 class Position:
     def __init__(self, ticker, price, n_shares, timestamp):
         self.ticker = ticker
@@ -97,3 +100,44 @@ def backtest(data: pd.DataFrame, sl: float, tp: float,
             capital += short_close
         else:
             nfm.append(short_signal)
+
+    # Convertir portfolio_value a una Serie de pandas
+    portfolio_series = pd.Series(portfolio_value)
+
+    # Calcular el rendimiento logarítmico
+    portafolio_value_rends = np.log(portfolio_series / portfolio_series.shift(1))
+
+    # Calcular el Sharpe Ratio
+    mean_portfolio_return = portafolio_value_rends.mean()  # Rendimiento promedio del portafolio
+    portfolio_volatility = portafolio_value_rends.std()  # Volatilidad del portafolio
+    sharpe_ratio = (mean_portfolio_return - rf) / portfolio_volatility  # Sharpe Ratio
+
+    print(f"Sharpe Ratio: {sharpe_ratio:.4f}")
+
+    # Calcular el valor máximo acumulado en cada momento
+    running_max = portfolio_series.cummax()
+
+    # Calcular el Drawdown
+    drawdown = (portfolio_series - running_max) / running_max
+
+    # Max Drawdown
+    max_drawdown = drawdown.min()
+
+    print(f"Max Drawdown: {max_drawdown:.4f}")
+
+    # Calcular el Win-Loss Ratio
+    if losses > 0:
+        win_loss_ratio = wins / losses
+    else:
+        win_loss_ratio = np.inf  # Si no hay pérdidas, el Win-Loss ratio es infinito
+
+    passive = list(train_data.Close)
+
+    print(f"Win-Loss Ratio: {win_loss_ratio:.2f}")
+
+    print(
+        f'El rendimiento del portafolio con estrategia fue: {(np.log(portfolio_value[-1] / portfolio_value[0])) * 100:.2f}%')
+    print(f'El rendimiento de la inversión pasiva fue: {(np.log(passive[-1] / passive[0])) * 100:.2f}%')
+
+    return sharpe_ratio, max_drawdown, win_loss_ratio, np.log(
+        portfolio_value[-1] / portfolio_value[0]) * 100, portfolio_series
