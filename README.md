@@ -12,6 +12,12 @@ The objective of this project is to optimize a trading strategy using five techn
 
 ## Installation Instructions
 
+### Important Note
+
+Before running the script, make sure to update the path in the code to point to your CSV file containing the data. Look for the line in `main.py` where the data is loaded, and modify the path accordingly:
+
+
+
 ## Steps for Windows:
 1. Clone the repository:
    ```bash
@@ -34,7 +40,7 @@ The objective of this project is to optimize a trading strategy using five techn
 
 6. Run the main script:
    ```bash
-   python technical_analysis\__main__.py
+   python main.py
 
 ## Steps for Mac:
 1. Clone the repository:
@@ -58,7 +64,7 @@ The objective of this project is to optimize a trading strategy using five techn
 
 6. Run the main script:
    ```bash
-   python technical_analysis/__main__.py
+   python main.py
 
 ## Project Structure
 your_project/
