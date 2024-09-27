@@ -6,9 +6,9 @@ from technical_analysis.backtest import backtest
 import optuna
 
 # Cargar el dataset de entrenamiento
-train_data_path = r'C:\Users\HP\OneDrive\Documentos\Tareas ITESO\Décimo Semestre\Trading\aapl_5m_train.csv'
+train_data_path = r'C:\Users\52354\OneDrive\Documentos\TRADING\Proyecto2\data\aapl_5m_train.csv'
 
-test_data_path = r'C:\Users\HP\OneDrive\Documentos\Tareas ITESO\Décimo Semestre\Trading\aapl_5m_test.csv'
+test_data_path = r'C:\Users\52354\OneDrive\Documentos\TRADING\Proyecto2\data\aapl_5m_test.csv'
 
 # Cargar el dataset
 test_data = load_data(test_data_path)

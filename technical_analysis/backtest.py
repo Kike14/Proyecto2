@@ -131,7 +131,7 @@ def backtest(data: pd.DataFrame, sl: float, tp: float,
     else:
         win_loss_ratio = np.inf  # Si no hay pérdidas, el Win-Loss ratio es infinito
 
-    passive = list(train_data.Close)
+    passive = list(data.Close)
 
     print(f"Win-Loss Ratio: {win_loss_ratio:.2f}")
 

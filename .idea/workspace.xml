@@ -27,12 +27,12 @@
     &quot;assignee&quot;: &quot;FerRamirezMontejano&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Kike14/Proyecto2",
-    "accountId": "aee6d12f-f788-4796-95a2-1bb8c89dc82f"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Kike14/Proyecto2&quot;,
+    &quot;accountId&quot;: &quot;a4da22d8-8269-4831-a8a5-ab850bc138bc&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -45,8 +45,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "MajoE",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/Dell/OneDrive - ITESO/Documentos/IFI/11 Onceavo/Trading/Proyecto2"
   }
 }]]></component>
