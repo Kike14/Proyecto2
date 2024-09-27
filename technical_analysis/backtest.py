@@ -10,7 +10,7 @@ class Position:
 
 
 def backtest(data: pd.DataFrame, sl: float, tp: float,
-             n_shares: int, rf: float) -> float:
+             n_shares: int, rf: float):
     data = data.copy()
 
     ind = data.iloc[:, 9:]
@@ -135,9 +135,7 @@ def backtest(data: pd.DataFrame, sl: float, tp: float,
 
     print(f"Win-Loss Ratio: {win_loss_ratio:.2f}")
 
-    print(
-        f'El rendimiento del portafolio con estrategia fue: {(np.log(portfolio_value[-1] / portfolio_value[0])) * 100:.2f}%')
+    print(f'El rendimiento del portafolio con estrategia fue: {(np.log(portfolio_value[-1] / portfolio_value[0])) * 100:.2f}%')
     print(f'El rendimiento de la inversión pasiva fue: {(np.log(passive[-1] / passive[0])) * 100:.2f}%')
 
-    return sharpe_ratio, max_drawdown, win_loss_ratio, np.log(
-        portfolio_value[-1] / portfolio_value[0]) * 100, portfolio_series
+    return sharpe_ratio, max_drawdown, win_loss_ratio, np.log(portfolio_value[-1] / portfolio_value[0]) * 100, portfolio_series
